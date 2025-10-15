@@ -1,3 +1,12 @@
+##############Matt and Mario PLZ Check Here##############
+
+As I also used this repository for my weekly learning, 
+I have put everything I created for assignment 1 under:
+Assets/DDES9912_Frank/Assignment-1
+
+Please check the {{{{ Engine-Scene }}}} under this repo.
+
+
 # Overview
 Quick prototyping interaction toolkit intended for non coders or Unity beginners.
 
