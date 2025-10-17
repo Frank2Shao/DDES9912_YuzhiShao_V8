@@ -12,6 +12,11 @@ public class UseGas : MonoBehaviour
     private bool teleportEnabled = false;
     private Rigidbody subject;
 
+    public AudioSource engineAudio;   
+    public float fadeDuration = 2f;
+
+    public bool IsEngineRunning => teleportEnabled;
+
     
     public void StartEngine()
     {
@@ -32,7 +37,10 @@ public class UseGas : MonoBehaviour
         if (!teleportEnabled) return;
         if (destinations.Length == 0 || subject == null) return;
 
-        subject.useGravity = false;//this way small balls wou't drop down after teleport, it will hover in the cylinder,simulate the gasoline inside
+        subject.useGravity = false;
+        subject.linearVelocity = Vector3.zero;
+        subject.angularVelocity = Vector3.zero;
+        subject.Sleep();//this way small balls wou't drop down after teleport, it will hover in the cylinder,simulate the gasoline inside
 
         subject.transform.position = destinations[nextDestination].position;
 
