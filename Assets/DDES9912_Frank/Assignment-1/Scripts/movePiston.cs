@@ -3,14 +3,36 @@ using UnityEngine;
 public class movePiston : MonoBehaviour
 {
     private Rigidbody Piston;
+    private bool pistonMove = false;
 
-    void Awake() { Piston = GetComponent<Rigidbody>(); }
+    void Awake()
+    {
+        Piston = GetComponent<Rigidbody>(); 
+    }
+
+    void OnTriggerEnter()
+    {
+        pistonMove = true;
+        Debug.Log("gas fired!");
+    }
 
     void FixedUpdate()
     {
+        if (!pistonMove) return;
         float vy = Piston.linearVelocity.y;
-            if (vy < 0.01f){Piston.useGravity = true;}
-            else if (vy >= 0.01f){Piston.useGravity = false;}
+        if (vy < 0.01f)
+        {
+            Piston.useGravity = true;
+        }
+        else
+        { Piston.useGravity = false; }
+
+    }
+
+    public void EngineOff()
+    {
+        Piston.useGravity = false;   
+        pistonMove = false;   
     }
 
     /*public Vector3 startPPosition;

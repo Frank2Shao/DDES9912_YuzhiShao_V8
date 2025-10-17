@@ -7,7 +7,7 @@ public class UseGas : MonoBehaviour
     [Tooltip("The cylinder where balls(gas) go....")]
     public Transform[] destinations;
     [Tooltip("time between teleports")]
-    public float interval;//= 1f; //1 sec between each loop
+    public float interval;
     private int nextDestination = 0;
     private bool teleportEnabled = false;
     private Rigidbody subject;
@@ -31,6 +31,8 @@ public class UseGas : MonoBehaviour
     {
         if (!teleportEnabled) return;
         if (destinations.Length == 0 || subject == null) return;
+
+        subject.useGravity = false;//this way small balls wou't drop down after teleport, it will hover in the cylinder,simulate the gasoline inside
 
         subject.transform.position = destinations[nextDestination].position;
 
