@@ -680,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 886374719924831829, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
+      value: 3967
       objectReference: {fileID: 0}
     - target: {fileID: 1534723728633843283, guid: df63664dbdd376b4298726771ab129fa, type: 3}
       propertyPath: m_Name
@@ -4023,14 +4023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c297d5d22c79145979d2399db01a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GearPositionController
-  commonParent: {fileID: 1128094916}
-  neutralZF: 0
-  neutralZB: 0
-  neutralZ: -0.686
-  driveOffset: 0.05
-  reverseOffset: -0.05
-  rb: {fileID: 0}
-  cj: {fileID: 0}
 --- !u!1 &557083601
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,14 +6872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c297d5d22c79145979d2399db01a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GearPositionController
-  commonParent: {fileID: 1128094916}
-  neutralZF: 0
-  neutralZB: 0
-  neutralZ: 0
-  driveOffset: 0.05
-  reverseOffset: -0.05
-  rb: {fileID: 0}
-  cj: {fileID: 0}
 --- !u!1 &1137565860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c1dcf673dfcbd7e498b37d1b76cb25eb, type: 3}
