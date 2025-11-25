@@ -57,6 +57,8 @@ public class InteractableTrigger : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"[Trigger Enter] {name} hit by {other.name}, triggerActive={triggerActive}");
+        
         if (triggerActive)
         {
             if (CheckFilter(other))
@@ -128,6 +130,8 @@ public class InteractableTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log($"[Trigger Stay] {name} with {other.name}, triggerActive={triggerActive}");
+        
         if (CheckFilter(other))
             onTriggerStay.Invoke();
     }

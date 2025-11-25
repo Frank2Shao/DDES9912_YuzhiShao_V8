@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - CinemachineTarget
+  - Semi-finished
+  - NewParts
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Shell
   - Mechanism
   - PowerSystem
-  - 
+  - Semi-finished
   - 
   - 
   - 

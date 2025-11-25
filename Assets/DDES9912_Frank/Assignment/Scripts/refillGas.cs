@@ -9,7 +9,14 @@ public class refillGas:MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Rigidbody rb = other.attachedRigidbody;
+        if (rb == null) return;
+
+        Vector3 savedVelocity = rb.linearVelocity;
+        
+        rb.isKinematic = false;
         rb.useGravity = true;
-        rb.transform.position = destination.position;
+        rb.position = destination.position;
+        rb.linearVelocity = savedVelocity;
+        rb.WakeUp();
     }
 }
