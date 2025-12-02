@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Semi-finished
   - NewParts
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Mechanism
   - PowerSystem
   - Semi-finished
-  - 
+  - DonnotWalk
   - 
   - 
   - 

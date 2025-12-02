@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class Arrived : MonoBehaviour
 {
-    public ColourBlink indicator;   // 指向“指示灯 1”的 ColourBlink
+    public ColourBlink indicator;   // 
+    public int num;
 
-    // 这个函数会被动画事件调用
+    //this function is called when the part arrives at this stage
     public void OnArrived()
     {
         if (indicator != null)
         {
-            indicator.SetReadyColor();   // 直接把灯设成“就绪”颜色
+            indicator.SetReadyColor();   // set color to red
         }
+    }
+
+    public int counter()
+    {
+        num += 1;
+        return num;
     }
 }

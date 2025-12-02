@@ -1,6 +1,7 @@
 //EZPZ Interaction Toolkit
 //by Matt Cabanag
 //Created - don't remember when, some time in 2022-2923
+//Modified by Frank on 27/11/2025
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,10 @@ public class NMAWalkTowards : MonoBehaviour
     public UnityEvent onArrive;
     public UnityEvent onFirstMove;
     public Transform[] altDestinations;
+
+    
+    public int currentAltIndex = 0;//added by Frank
+
 
     [Header("Graphics")]
     public Animator avatarAnimator;
@@ -105,6 +110,35 @@ public class NMAWalkTowards : MonoBehaviour
 
         SetDestination(randomIndex);
     }
+
+//added by Frank
+    public void SwitchDestination()
+{
+    if (altDestinations == null || altDestinations.Length == 0) return;
+
+    // switch to the next destination in the array
+    currentAltIndex = (currentAltIndex + 1) % altDestinations.Length;
+
+    destination = altDestinations[currentAltIndex];
+    myNma.SetDestination(destination.position);
+}
+
+// use this to call SwitchDestination after a delay
+public void SwitchDestinationAfterDelay(float delay)
+{
+    StartCoroutine(SwitchAfterDelay(delay));
+}
+
+private IEnumerator SwitchAfterDelay(float delay)
+{
+    // wait for the specified delay
+    yield return new WaitForSeconds(delay);
+
+    // then switch destination
+    SwitchDestination();
+}
+
+//end of addition by Frank
 
     public void HandleAvatar()
     {

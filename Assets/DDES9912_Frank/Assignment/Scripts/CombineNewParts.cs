@@ -3,7 +3,9 @@ using UnityEngine;
 public class CombineNewParts : MonoBehaviour
 {
     [Header("Indicators")]
-    public ColourBlink indicator1,indicator2,indicator3;     
+    public ColourBlink indicator1,indicator2;
+    [Header("Indicator Sounds")]
+    public AnimationSound light1, light2;     
 
     [Header("Next Stage Animation")]
     public ConveyorController nextStage;   // next stage conveyor controller
@@ -20,13 +22,22 @@ public class CombineNewParts : MonoBehaviour
             ResetIndicator(indicator1);
             ResetIndicator(indicator2);
         }
-        else if (!IsReady(indicator1))
+        else if (!IsReady(indicator1) && IsReady(indicator2))
         {
             indicator1.SetWarningColor();//if needed, uncomment this line: indicator3.SetReadyColor();
+            light1.playSound(0);
         }
-        else if (!IsReady(indicator2))
+        else if (!IsReady(indicator2) && IsReady(indicator1))
         {
             indicator2.SetWarningColor();
+            light2.playSound(0);
+        }
+        else
+        {
+            indicator1.SetWarningColor();
+            indicator2.SetWarningColor();
+            light1.playSound(0);
+            light2.playSound(0);
         }
     }
 
@@ -41,13 +52,13 @@ public class CombineNewParts : MonoBehaviour
     {
         if (indicator == null) return;
 
-        // 关闭闪烁（如果你还想让它闪可以改逻辑）
+        // turn off blinking
         indicator.blinkEnabled = false;
 
-        // 还原到 startColor
+        // reset color
         indicator.currentColor = indicator.startColor;
 
-        // 用 ColourBlink 里缓存的材质，如果没有就自己取一次
+        // update material color
         if (indicator.myMaterial == null)
         {
             var rend = indicator.GetComponent<Renderer>();

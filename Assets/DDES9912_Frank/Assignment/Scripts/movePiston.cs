@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class movePiston : MonoBehaviour
 {
-    private Rigidbody Piston;
+    public Rigidbody Piston;
     private bool pistonMove = false;
 
     void Awake()
@@ -14,11 +14,13 @@ public class movePiston : MonoBehaviour
     {
         pistonMove = true;
         Debug.Log("gas fired!");
+        FixedUpdate();
     }
 
     void FixedUpdate()
     {
         if (!pistonMove) return;
+        
         float vy = Piston.linearVelocity.y;
         if (vy < 0.01f)
         {
