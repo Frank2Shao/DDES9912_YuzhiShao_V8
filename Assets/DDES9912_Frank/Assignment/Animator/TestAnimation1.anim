@@ -1124,14 +1124,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
-  - time: 11.016666
+  - time: 10.333333
     functionName: stopSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 11.133333
+  - time: 11.116667
     functionName: playSound
     data: 
     objectReferenceParameter: {fileID: 0}
