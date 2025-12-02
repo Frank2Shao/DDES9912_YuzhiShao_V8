@@ -8,6 +8,7 @@ public class TestController : MonoBehaviour
 
     [Header("Animator Parameters")]
     public string Trigger = "PlayFirstPart";   // Trigger to the animation
+    public float delay = 5f;
 
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class TestController : MonoBehaviour
     private IEnumerator StartPartCoroutine()
     {
         // wait for 5 seconds before starting the first part
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(delay);
 
         // trigger the first part of the animation
         if (animator != null && !string.IsNullOrEmpty(Trigger))
